@@ -28,11 +28,11 @@ function MenuItem({ pizza }) {
       <img
         src={imageUrl}
         alt={name}
-        className={`h-24 ${soldOut ? "opacity-70 grayscale" : ""}`}
+        className={`h-24 ${soldOut ? "opacity-70 grayscale" : ""} my-auto`}
       />
-      <div className="flex flex-grow flex-col pt-0.5">
+      <div className="flex flex-grow flex-col gap-2 pt-0.5">
         <p className="font-medium">{name}</p>
-        <p className="text-sm capitalize italic text-stone-500">
+        <p className="mb-3 text-sm capitalize italic text-stone-500">
           {ingredients.join(", ")}
         </p>
         <div className="mt-auto flex flex-wrap items-center justify-between gap-2 text-sm">
