@@ -4,13 +4,13 @@
 
 @layer components {
   .input {
-    @apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
+    @apply rounded-full border border-slate-800 bg-slate-800 px-4 py-2 text-sm outline-none transition-all duration-300 placeholder:text-slate-400 focus:ring focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-slate-900 md:px-6 md:py-3;
   }
 
   .loader {
     width: 45px;
     aspect-ratio: 0.75;
-    --c: no-repeat linear-gradient(theme(colors.stone.800) 0 0);
+    --c: no-repeat linear-gradient(theme(colors.slate.200) 0 0);
     background:
       var(--c) 0% 50%,
       var(--c) 50% 50%,

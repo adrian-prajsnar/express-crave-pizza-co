@@ -36,26 +36,27 @@ function Order() {
         <h2 className="text-xl font-semibold">Order #{id} status</h2>
         <div className="flex flex-wrap gap-2">
           {priority && (
-            <span className="rounded-full bg-red-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-red-50">
+            <span className="rounded-full bg-red-700 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-red-50">
               Priority
             </span>
           )}
-          <span className="rounded-full bg-green-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-green-50">
+          <span className="rounded-full bg-green-700 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-green-50">
             {status} order
           </span>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-2 bg-stone-200 px-6 py-5">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-slate-800 px-6 py-5">
         <p className="font-medium">
           {deliveryIn >= 0
-            ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
+            ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left`
             : "Order should have arrived"}
+          <span className="inline-block pl-3 text-xl">&rarr;</span>
         </p>
-        <p className="text-xs text-stone-500">
+        <p className="text-xs text-slate-400">
           (Estimated delivery: {formatDate(estimatedDelivery)})
         </p>
       </div>
-      <ul className="divide-y divide-stone-200 border-b border-t">
+      <ul className="divide-y divide-slate-800 border-b border-t border-slate-800">
         {cart.map((item) => (
           <OrderItem
             item={item}
@@ -68,7 +69,7 @@ function Order() {
           />
         ))}
       </ul>
-      <div className="space-y-2 bg-stone-200 px-6 py-5 text-sm font-medium text-stone-600">
+      <div className="space-y-2 rounded-md bg-slate-800 px-6 py-5 text-sm font-medium">
         <p>Price pizza: {formatCurrency(orderPrice)}</p>
         {priority && <p>Price priority: {formatCurrency(priorityPrice)}</p>}
         <p className="font-bold">

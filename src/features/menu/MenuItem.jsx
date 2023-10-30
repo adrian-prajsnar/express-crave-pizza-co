@@ -32,14 +32,14 @@ function MenuItem({ pizza }) {
       />
       <div className="flex flex-grow flex-col gap-2 pt-0.5">
         <p className="font-medium">{name}</p>
-        <p className="mb-3 text-sm capitalize italic text-stone-500">
+        <p className="mb-3 text-sm capitalize italic text-slate-400">
           {ingredients.join(", ")}
         </p>
         <div className="mt-auto flex flex-wrap items-center justify-between gap-2 text-sm">
           {!soldOut ? (
             <p>{formatCurrency(unitPrice)}</p>
           ) : (
-            <p className="font-medium uppercase text-stone-500">Sold out</p>
+            <p className="font-medium uppercase text-slate-600">Sold out</p>
           )}
 
           {isInCart && (

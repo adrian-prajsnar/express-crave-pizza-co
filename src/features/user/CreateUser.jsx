@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { updateName } from "./userSlice";
-import { useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 
 function CreateUser() {
@@ -20,8 +20,8 @@ function CreateUser() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p className="mb-4 text-base text-stone-600 md:text-lg">
-        👋 Welcome! Please start by telling us your name:
+      <p className="mb-4 text-base text-slate-300 md:text-lg">
+        👋 Hey there! To get started, kindly share your name with us:
       </p>
       <input
         type="text"

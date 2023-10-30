@@ -10,7 +10,6 @@ import Button from "../../ui/Button";
 import EmptyCart from "../cart/EmptyCart";
 import store from "../../store";
 
-// https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
     str,
@@ -35,6 +34,9 @@ function CreateOrder() {
   const priorityPrice = withPriority ? totalCartPrice * 0.2 : 0;
   const totalPrice = totalCartPrice + priorityPrice;
 
+  const isBtnGetPosDisplayed =
+    addressStatus === "error" || (!position.latitude && !position.longitude);
+
   if (!cart.length) return <EmptyCart />;
 
   return (
@@ -42,21 +44,28 @@ function CreateOrder() {
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
       <Form method="POST" action="/order/new">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">First Name</label>
+          <label className="sm:basis-40">Full name</label>
           <input
             className="input grow"
             type="text"
             name="customer"
             defaultValue={username}
             required
+            autoComplete="off"
           />
         </div>
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">Phone number</label>
           <div className="grow">
-            <input className="input w-full" type="tel" name="phone" required />
+            <input
+              className="input w-full"
+              type="tel"
+              name="phone"
+              required
+              autoComplete="off"
+            />
             {formErrors?.phone && (
-              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+              <p className="mt-2 rounded-md bg-red-700 p-2 text-xs text-red-50">
                 {formErrors.phone}
               </p>
             )}
@@ -65,7 +74,7 @@ function CreateOrder() {
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label
             className={
-              addressStatus === "error" ? "sm:basis-72" : "sm:basis-40"
+              addressStatus === "error" ? "sm:basis-[16.89rem]" : "sm:basis-40"
             }
           >
             Address
@@ -73,19 +82,22 @@ function CreateOrder() {
           <div className="grow">
             <div className="relative">
               <input
-                className="input w-full"
+                className={`input w-full ${
+                  isBtnGetPosDisplayed && "pr-[8.625rem] md:pr-[10.25rem]"
+                }`}
                 type="text"
                 name="address"
                 disabled={isLoadingAddress}
                 defaultValue={address}
                 required
+                autoComplete="off"
               />
               {addressStatus === "error" ||
                 (!position.latitude && !position.longitude && (
                   <span className="absolute right-[3px] top-[3px] z-10 md:right-[5px] md:top-[5px]">
                     <Button
                       disabled={isLoadingAddress}
-                      type="small"
+                      type="lighterSmall"
                       onClick={(e) => {
                         e.preventDefault();
                         dispatch(fetchAddress());
@@ -97,7 +109,7 @@ function CreateOrder() {
                 ))}
             </div>
             {addressStatus === "error" && (
-              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700 sm:text-sm">
+              <p className="mt-2 rounded-md bg-red-700 p-2 text-xs text-red-50">
                 {errorAddress}
               </p>
             )}
@@ -105,7 +117,7 @@ function CreateOrder() {
         </div>
         <div className="mb-12 flex items-center gap-5">
           <input
-            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
+            className="h-4 w-4 accent-sky-400 outline-none transition-all duration-300 focus:ring focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-slate-900"
             type="checkbox"
             name="priority"
             id="priority"
