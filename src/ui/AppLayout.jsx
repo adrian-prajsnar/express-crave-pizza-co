@@ -9,16 +9,19 @@ function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="max-w-screen grid h-screen w-screen grid-rows-[auto_1fr_auto]">
-      {isLoading && <Loader />}
-      <Header />
-      <div className="overflow-auto">
-        <main className="mx-auto flex min-h-full w-full max-w-3xl items-center justify-center py-4">
-          <Outlet />
-        </main>
+    <>
+      <div className="bg- absolute left-0 top-0 h-screen w-screen bg-[url('/pizza-bg.jpg')] bg-cover bg-center"></div>
+      <div className="max-w-screen relative grid h-screen w-screen grid-rows-[auto_1fr_auto]">
+        {isLoading && <Loader />}
+        <Header />
+        <div className="overflow-auto ">
+          <main className="mx-auto flex min-h-full w-full max-w-3xl items-center justify-center py-4">
+            <Outlet />
+          </main>
+        </div>
+        <CartOverview />
       </div>
-      <CartOverview />
-    </div>
+    </>
   );
 }
 

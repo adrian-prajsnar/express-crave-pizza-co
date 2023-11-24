@@ -39,7 +39,7 @@ function MenuItem({ pizza }) {
           {!soldOut ? (
             <p>{formatCurrency(unitPrice)}</p>
           ) : (
-            <p className="font-medium uppercase text-slate-600">Sold out</p>
+            <p className="font-medium uppercase text-slate-500">Sold out</p>
           )}
 
           {isInCart && (

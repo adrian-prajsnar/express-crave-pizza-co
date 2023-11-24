@@ -14,7 +14,7 @@ function Cart() {
   if (!cart.length) return <EmptyCart />;
 
   return (
-    <div className="max-h-full w-screen px-4">
+    <div className="max-h-full w-screen bg-slate-900/75 p-4 backdrop-blur-sm md:rounded-md">
       <LinkButton to="/menu">&larr; Back to menu</LinkButton>
       <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
       <ul className="mt-3 divide-y divide-slate-800 border-b border-slate-800">

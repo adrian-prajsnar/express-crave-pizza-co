@@ -31,7 +31,7 @@ function Order() {
   }, [fetcher]);
 
   return (
-    <div className="max-h-full w-screen space-y-8 px-4">
+    <div className="max-h-full w-screen space-y-8 bg-slate-900/75 p-4 backdrop-blur-sm md:rounded-md">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-xl font-semibold">Order #{id} status</h2>
         <div className="flex flex-wrap gap-2">
@@ -45,7 +45,7 @@ function Order() {
           </span>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-slate-800 px-6 py-5">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-slate-800/75 px-6 py-5">
         <p className="font-medium">
           {deliveryIn >= 0
             ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left`
@@ -69,7 +69,7 @@ function Order() {
           />
         ))}
       </ul>
-      <div className="space-y-2 rounded-md bg-slate-800 px-6 py-5 text-sm font-medium">
+      <div className="space-y-2 rounded-md bg-slate-800/75 px-6 py-5 text-sm font-medium">
         <p>Price pizza: {formatCurrency(orderPrice)}</p>
         {priority && <p>Price priority: {formatCurrency(priorityPrice)}</p>}
         <p className="font-bold">

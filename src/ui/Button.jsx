@@ -9,7 +9,7 @@ function Button({ children, disabled, to, type, onClick }) {
     small: base + " px-4 py-2 md:px-5 md:py-2.5 text-xs",
     round: base + " px-2.5 py-1 md:px-3.5 md:py-2 text-sm",
     secondary:
-      "inline-block text-sm rounded-full border-2 border-slate-800 font-semibold uppercase tracking-wide text-slate-400 transition-all duration-300 hover:bg-slate-800 hover:text-slate-200 focus:bg-slate-800 focus:text-slate-200 outline-none focus:ring focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:cursor-not-allowed px-4 py-2.5 md:px-6 md:py-3.5",
+      "inline-block text-sm rounded-full border-2 border-slate-600 font-semibold uppercase tracking-wide text-slate-400 transition-all duration-300 hover:bg-slate-700 hover:border-slate-700 hover:text-slate-200 focus:bg-slate-700 focus:text-slate-200 focus:border-slate-700 outline-none focus:ring focus:ring-slate-600 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:cursor-not-allowed px-4 py-2.5 md:px-6 md:py-3.5",
     lighterSmall:
       "inline-block text-sm rounded-full font-semibold uppercase tracking-wide text-slate-200 transition-all duration-300 bg-slate-700 hover:bg-slate-600 focus:bg-slate-600 focus:ring-slate-600 focus:ring-offset-slate-800 outline-none focus:ring focus:ring-offset-2 disabled:cursor-not-allowed px-4 py-2 md:px-5 md:py-2.5 text-xs",
   };
